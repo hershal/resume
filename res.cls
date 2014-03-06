@@ -281,7 +281,7 @@
 \newdimen\resumewidth
 
 \resumewidth=6.5in
-\sectionskip=3.5ex plus 1ex minus -.2ex % values stolen from LaTeX
+\sectionskip=2.5ex plus 1ex minus -.2ex % values stolen from LaTeX
 
 \def\newsectionwidth#1{%
 		     \sectionwidth=#1
@@ -775,13 +775,12 @@
 \topmargin 0pt
 \headheight 0pt
 \headsep 0pt
-\textheight 9in
+\textheight 9.5in
 \parindent 0pt
-\topmargin 0in
+% \topmargin -0.5in
 \oddsidemargin 0pt
 \evensidemargin 0pt
 \marginparwidth 0pt
-\parindent 0pt
 \parskip \baselineskip
 \setcounter{secnumdepth}{0}
 \def\@listI{\leftmargin\leftmargini

@@ -11,7 +11,7 @@ OUTPUT=$(MASTERFILE).pdf
 
 all: $(SOURCE) $(OUTPUT)
 
-$(OUTPUT): $(SOURCE)
+$(OUTPUT): $(SOURCE) res.cls
 	latexmk -pdf -pdflatex='pdflatex -interaction=nonstopmode' -use-make $(SOURCE)
 
 clean:
