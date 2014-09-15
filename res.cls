@@ -790,6 +790,9 @@
 \parsep 2pt plus 2pt
 \itemsep \parsep}
 
+\addtolength{\oddsidemargin}{-.1545in}
+\addtolength{\textwidth}{2in}
+
 \pagestyle{empty}  % don't want page numbers
 
 \begin{format}
