@@ -202,7 +202,6 @@
 
 \nofiles       % resume's don't need .aux files
 
-
 \newtoks\tabular@text       % holds the current list being processed
 \newtoks\tabular@head       % holds the head tabular list
 \newtoks\tabular@tail       % holds the tail tabular list
@@ -213,44 +212,12 @@
 % prints a centered name with the address centered
 % or the two address on opposite sides of the page
 %
-\def\@printcentername{\begingroup
+\def\print@name{\begingroup
   % print the name centered
-  \leavevmode\hbox to \textwidth{\hfil\@tablebox{\namefont\@name}\hfil}\par
-  \@ifundefined{@addressone}{%
-    % do nothing
-  }{%
-    \@ifundefined{@addresstwo}{
-      % only one address
-      \leavevmode\hbox to \textwidth{\hfil\@tablebox{\@addressone}\hfil}\par
-    }{
-      % two addresses
-      \leavevmode\hbox to \textwidth{\@tablebox{\@addressone}\hfil
-             \@tablebox{\@addresstwo}}\par
-    }%
-  }%
-\endgroup}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% this is used to print the name and address at the top of
-% the page with a hline in between
-%
-\def\namefont{\large\bf}
-\def\@linename{\begingroup
-  \def\\{, }
-  {\namefont\@name}
-  \vskip 2pt
-  \fullline
-  \vskip 2pt
-  % where do you live?
-  \@ifundefined{@addressone}{%
-    % do nothing
-  }{%
-    \leavevmode\hbox to \textwidth
-      {\hfill\vbox{\hbox{\@addressone}
-       \hbox{\@addresstwo}
-      }%
-      }\par
-  }
+  \smallskip\smallskip
+  \leavevmode\hbox to
+  \textwidth{\@tablebox{l}{\@addressone}\hfil\@tablebox{c}{{\namefont\@name}\\\@phone}\hfil
+    \@tablebox{r}{\@addresstwo}}\par
 \endgroup}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -263,9 +230,6 @@
 %    then the address all on one line in the right corner
 %    the second address will be directly below the first if defined
 %
-\let\print@name\relax
-\def\ds@centered{\ifx\print@name\relax\let\print@name\@printcentername\fi}
-\def\ds@line{\ifx\print@name\relax\let\print@name\@linename\fi}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -442,7 +406,7 @@
 \let\@@section\relax
 \def\ds@overlapped{\ifx\@@section\relax\newsectionwidth{0.5in}\let
   \@@section\unboxed@sectiontitle\fi}
-\def\ds@margin{\ifx\@@section\relax\newsectionwidth{1.3in}\let
+\def\ds@margin{\ifx\@@section\relax\newsectionwidth{1.25in}\let
   \@@section\boxed@sectiontitle\fi}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -480,14 +444,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % create a multiline box.
 %
-\def\@tablebox#1{\begin{tabular}[t]{@{}l@{\extracolsep{\fill}}}#1\end{tabular}}
+\def\@tablebox#1#2{\begin{tabular}[t]{@{}{#1}@{\extracolsep{\fill}}}#2\end{tabular}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % use this to define your name
 %
 \def\name#1{\def\@name{#1}}
-
 \def\@name{}
+
+\def\phone#1{\def\@phone{#1}}
+\def\@phone{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % use this to define your address, this may be called more than once.
@@ -543,26 +509,6 @@
 
 \def\endncolumn{\end{tabular*}}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   \employer{text} defines employer to be text
-%   \location{text} defines location to be text
-%   \dates{text}    defines dates    to be text
-%   \title{text}    defines title    to be text
-%   \body
-%
-
-\def\employer#1{\def\@employer{\print@employer{#1}}}
-\def\location#1{\def\@location{\print@location{#1}}}
-\def\dates#1{\def\@dates{\print@dates{#1}}}
-\def\title#1{\def\@title{\print@title{#1}}}
-
-\let\l@justify\raggedright
-\let\r@justify\raggedleft
-\let\c@justify\centering
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \@format{name}{justify}
 % will define \print@#1 to print it's one argument
 % justified according to #2 which can be
@@ -790,7 +736,7 @@
 \parsep 2pt plus 2pt
 \itemsep \parsep}
 
-\addtolength{\oddsidemargin}{-.37in}
+\addtolength{\oddsidemargin}{-.25in}
 \addtolength{\textwidth}{2in}
 
 \pagestyle{empty}  % don't want page numbers
