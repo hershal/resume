@@ -1,45 +1,77 @@
 \documentclass[margin]{res}
-\setlength{\textwidth}{5.2in} % set width of text portion
+\setlength{\textwidth}{5.8in} % set width of text portion
 \usepackage{enumitem}
 \usepackage{multicol}
 \usepackage{changepage}
 \usepackage[none]{hyphenat}
+\usepackage{hyperref}
+\usepackage{soul}
+\setul{1pt}{.4pt}
 
 \begin{document}
 % Center the name over the entire width of resume:
-\moveleft.5\hoffset\centerline{\large\bf Hershal Bhave}
 % Draw a horizontal line the whole width of resume:
-\moveleft\hoffset\vbox{\hrule width\resumewidth height 1pt}\smallskip
-\moveleft.5\hoffset\centerline{\sl github.com/hershal}
-\moveleft.5\hoffset\centerline{hershal.bhave@gmail.com}
+% \moveleft\hoffset\vbox{\hrule width\resumewidth height 1pt}
+% \smallskip
+% \moveleft.5\hoffset\centerline{}
+% \moveleft.5\hoffset\centerline{}
+\moveleft.5\hoffset\centerline{\large\bf Hershal Bhave}
 \moveleft.5\hoffset\centerline{817-915-1303}
-\vspace{-4.5em}
-\address{{\bf School Address} \\
-  301 W 39th St., Apt 202\\
+\vspace{-3.5em}
+% \name{Hershal Bhave}
+\address{301 W 39th St., Apt 202\\
   Austin, TX 78751}
-\address{{\bf Permanent Address} \\
-  1322 Windhaven Dr \\
-  Murphy, TX 75094}
-
+\address{\href{mailto:hershal.bhave@gmail.com}{\ul{\texttt{hershal.bhave@gmail.com}}} \\
+  \href{https://github.com/hershal}{\ul{\texttt{github.com/hershal}}}}
 \begin{resume}
   \section{OBJECTIVE}
-  To use cutting-edge technology to solve challenging hardware and software engineering problems.
+  To use cutting-edge technology to solve challenging software engineering
+  problems.
   \section{EDUCATION}
   {\sl Bachelor of Science,} Electrical Engineering \\
   The University of Texas at Austin, expected May 2016 \\
   Concentration: Computer Architecture and Embedded Systems
+  \section{INTERESTING PROJECTS}
+  {\sl M374M} \hfill \href{https://github.com/hershal/m374m}
+  {\ul{\texttt{github.com/hershal/m374m}}} \\
+  100\% automated build system for homework written in \LaTeX{}. Uses tikz, pgf,
+  and GNU Octave for graphing; CMake for build automation; and Travis CI for
+  continuous integration.
+  \vspace{0.5em} \\
+  {\sl QuARC} \hfill
+  \href{https://www.youtube.com/watch?v=MEig9XBwUmU}{\sl \ul{YouTube 1}}\quad
+  \href{https://www.youtube.com/watch?v=MEig9XBwUmU}{\sl \ul{YouTube 2}}\quad
+  \href{https://github.com/r2labs}{\ul{\texttt{github.com/r2labs}}} \\
+  Senior Design project; utilizes a homebrew Real-Time OS
+  (\href{https://github.com/r2labs/uncleos}{\sl \ul{UncleOS}}) running on a
+  TI TM4C and a custom \href{http://www.ros.org}{\sl \ul{Robot OS}}
+  \href{https://github.com/r2labs/quarc-inverse-kinematics}{\sl \ul{inverse
+      kinematics node}} running on a Qualcomm IFC6410 for precise
+  \href{https://github.com/r2labs/quarc-user-interface}{\sl
+    \ul{manipulation}} of a Lynxmotion AL5D 4-degrees-of-freedom robotic arm. Utilizes
+  \href{http://opencv.org}{\sl\ul{OpenCV}} to
+  \href{https://github.com/r2labs/quarc-vision}{\sl \ul{detect and sort
+      objects}} and a \href{https://github.com/r2labs/quarc-web-interface}{\sl
+    \ul{web-based control dashboard}}.
+  \vspace{0.5em}\\
+  {\sl SuperTicTacToe} \hfill
+  \href{http://sttt.r2labs.us}{\ul{\texttt{sttt.r2labs.us}}}\quad
+  \href{https://github.com/hershal/supertictactoe}{\ul{\texttt{github.com/hershal/supertictactoe}}} \\
+  A recursive Tic-Tac-Toe game written in Java (server-side AI), VanillaJS
+  (client-side), and utilizes the Firebase DaaS for concurrency.
+
   \section{RELEVANT COURSES}
-  \vspace{-.125em}
+  \vspace{-.1em}
   {\footnotesize\textbf{CURRENTLY ENROLLED}}
-  \vspace{-.75em}
+  \vspace{-.875em}
   \begin{multicols}{2}
     \begin{itemize}
       \item Mathematical Modeling \& Analysis
     \end{itemize}
   \end{multicols}
-  \vspace{-1.5em}
+  \vspace{-1.75em}
   {\footnotesize\textbf{PREVIOUSLY TAKEN}}
-  \vspace{-.75em}
+  \vspace{-.875em}
   \begin{multicols}{2}
     \begin{itemize}
     \item Senior Design I and II
@@ -67,54 +99,56 @@
   \item Wrote a GPU functional simulator in C++ and Python.
   \item Participated in GPU ISA studies and improvements.
   \end{itemize}
+  \vspace{-.5em}
   {\sl Intel Corporation}
   \hfill (During School) August 2014 --- June 2015 \\
   GPU, ISP, and Display Verification Intern, Austin TX
   \vspace{0.25em}
   \begin{itemize}
-  \item Developed a testbench harness for a block-functional display
-    controller model, written in C++ and SystemVerilog with DPI.
+  \item Developed a testbench harness for a block-functional display controller
+    model, written in C++ and SystemVerilog with SV Direct Programming
+    Interface.
   \end{itemize}
+  \vspace{-.5em}
   {\sl NVIDIA Corporation}
   \hfill (Summer Intership) June 2014 --- August 2014 \\
   SM Design Verification Intern, Santa Clara CA
   \vspace{0.25em}
   \begin{itemize}
-  \item Expanded a C++14-based test analysis tool to improve ISA
-    coverage reporting through static analysis.
-  \item Greatly improved visibility of test coverage.
+  \item Expanded a C++14 test analysis tool to improve ISA coverage reporting
+    by static analysis.
+  \item Greatly improved visibility of test coverage for all opcodes and opcode
+    modifiers, improved instruction check and filter logic, and exported data to
+    an easy-to-read plaintext format.
   \end{itemize}
-  {\sl Intel Corporation}
-  \hfill (During School) August 2012 --- June 2014 \\
-  Full-Chip Verification Intern, Austin TX
-  \vspace{0.25em}
-  \begin{itemize}
-  \item Wrote scripts to analyze compiler warning messages.
-  \item Wrote various internal scripts for IP versioning and bug
-    management.
-  \end{itemize}
-
+  % {\sl Intel Corporation}
+  % \hfill (During School) August 2012 --- June 2014 \\
+  % Full-Chip Verification Intern, Austin TX
+  % \vspace{0.25em}
+  % \begin{itemize}
+  % \item Wrote scripts to analyze compiler warning messages.
+  % \item Wrote various internal scripts for IP versioning and bug
+  %   management.
+  % \end{itemize}
   \section{COMPUTER SKILLS}
   {\sl Languages \& Software} \\
   \vspace{-1.0em}
   \begin{adjustwidth}{1.5em}{0pt}
-    ARM THUMB2, Bash, C99, C++14, git, GNU Octave, Java, \LaTeX, Emacs Lisp,
-    Perl, Python, Swift 2.1, Verilog 2001
+    Bash, C99, C++11, git, GNU Octave, Java, \LaTeX, Emacs Lisp, Perl, Python,
+    Ruby, Swift, Verilog
     \vspace{0.5em} \\
-    Very experienced with GNU/Linux, GNU/Linux system administration,
-    scripting, version control, and software development. My preferred
-    editor is emacs.
+    Very experienced with GNU/Linux, GNU/Linux system administration, scripting,
+    version control, and software development. My preferred editor is emacs.
   \end{adjustwidth}
 
   \section{EXTRA-\\CURRICULAR ACTIVITIES}
   {\sl President, IEEE Computer Society}
   \hfill December 2013 --- August 2015 \\
-  {\sl ieeecs.ece.utexas.edu}
+  \href{http://ieeecs.ece.utexas.edu}{\ul{\texttt{ieeecs.ece.utexas.edu}}}
   \begin{adjustwidth}{1.5em}{0pt}
-    As president, I designed competitions, developed lectures, and generally
-    pushed the society to excel in its various endeavors. In addition, I made
-    sure that everybody in the society is doing their part and resolved societal
-    conflicts.
+    As president, I interface with companies, design competitions, develop
+    lectures, and push the society and its officers to provide great services to
+    the student body.
    \end{adjustwidth}
 \end{resume}
 \end{document}
