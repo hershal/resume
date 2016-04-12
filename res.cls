@@ -209,6 +209,29 @@
 \newtoks\undefined@token\undefined@token={}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% this is used to print the name and address at the top of
+% the page with a hline in between
+%
+\def\namefont{\large\bf}
+\def\@linename{\begingroup
+  \def\\{, }
+  {\namefont\@name}
+  \vskip 2pt
+  \fullline
+  \vskip 2pt
+  % where do you live?
+  \@ifundefined{@addressone}{%
+    % do nothing
+  }{%
+    \leavevmode\hbox to \textwidth
+      {\hfill\vbox{\hbox{\@addressone}
+       \hbox{\@addresstwo}
+      }%
+      }\par
+  }
+\endgroup}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % prints a centered name with the address centered
 % or the two address on opposite sides of the page
 %
